@@ -166,8 +166,6 @@ long checkUltrasonic()
     delayMicroseconds(10);
     digitalWrite(pingPin, LOW);
     duration = pulseIn(echoPin, HIGH);
-    Serial.println(i);
-    Serial.println(duration);
     delay(100);
     if (duration < 30000)
     {
@@ -183,12 +181,6 @@ String calculateO2content()
   double totpsi = psicount + psi1;
 
   double o2content = (totpsi*measurement2)/(psicount*(oxygen-nitrogen))-psi1/(psicount*(oxygen-nitrogen))*(.78*nitrogen+.21*oxygen)-nitrogen/(oxygen-nitrogen);
-
-  Serial.println(measurement2);
-  Serial.println(psicount);
-  Serial.println(oxygen);
-  Serial.println(nitrogen);
-  
   
   return "o2 content:" + String(o2content,2);
 }
